@@ -2,7 +2,7 @@
 
 ![Java](https://img.shields.io/badge/Java-17+-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white) ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.x-6DB33F?style=for-the-badge&logo=spring&logoColor=white) ![GCP](https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
-[![CI/CD Pipeline](https://github.com/Eswar-deep/job-alert-microservices/actions/workflows/main.yml/badge.svg)](https://github.com/Eswar-deep/job-alert-microservices/actions)
+[![CI/CD Pipeline](https://github.com/Eswar-deep/job-alert-microservices/actions/workflows/main.yml/badge.svg)](https://github.com/Eswar-deep/job-alert/actions)
 
 This project is the evolution of the original [job-alert bot](https://github.com/Eswar-deep/job-alert). It's a complete re-architecture of a monolithic Python script into a high-performance, **event-driven system** using **Java, Spring Boot,** and a modern **microservices architecture** designed for the cloud.
 
