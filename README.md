@@ -25,8 +25,30 @@ The system is designed around an event-driven, message-passing architecture to e
 
 ```mermaid
 graph TD
-    A[Scraper Service] -->|1. Publishes 'new-job' event| B(GCP Pub/Sub Topic);
-    B -->|2. Subscribes to events| C[Job Management Service];
-    C -->|3. Publishes 'notify-user' event| B;
-    B -->|4. Subscribes to events| D[Notification Service];
-    D -->|5. Sends Telegram Alert| E((User));
+    A[Scraper Service] -- 1. Publishes 'new-job' message --> B(new-jobs-topic);
+    B -- 2. Consumed by --> C[Job Management Service];
+    C -- 3. Checks & Saves to --> D[(MongoDB)];
+    C -- 4. Publishes 'notify-user' message --> E(notifications-topic);
+    E -- 5. Consumed by --> F[Notification Service];
+    F -- 6. Sends alert via --> G((Telegram API));
+```
+## Technology Stack
+
+*   **Backend:** Java 17+, Spring Boot 3
+*   **Messaging & Integration:** Apache Camel, Google Cloud Pub/Sub
+*   **Database:** MongoDB (via Spring Data MongoDB)
+*   **Web Scraping:** Selenium
+*   **Cloud & DevOps:** Docker, GCP Cloud Run, GitHub Actions (CI/CD)
+*   **Testing:** JUnit 5, Mockito
+
+## 🚧 Project Status: Under Active Development 🚧
+
+This project is being built iteratively. The current focus is on establishing the core architecture and message-driven communication.
+
+### Roadmap
+
+- [x] **Phase 1:** Core business logic for each service.
+- [ ] **Phase 2:** Implement Apache Camel routes and integrate with GCP Pub/Sub.
+- [ ] **Phase 3:** Containerize all services with Docker.
+- [ ] **Phase 4:** Establish a full CI/CD pipeline with GitHub Actions to deploy to GCP Cloud Run.
+- [ ] **Phase 5:** Implement comprehensive unit and integration tests.
